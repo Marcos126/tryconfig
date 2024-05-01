@@ -17,7 +17,7 @@ polybar ctf -c ~/.config/polybar/current.ini &
 polybar secondary -c ~/.config/polybar/current.ini &
 
 ## Right bar
-polybar primary -c ~/.config/polybar/current.ini &
+#polybar primary -c ~/.config/polybar/current.ini &
 polybar tth -c ~/.config/polybar/current.ini &
 
 ## Center bar

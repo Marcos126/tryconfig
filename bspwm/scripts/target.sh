@@ -1,10 +1,25 @@
 #!/bin/bash
- 
-ip_address=$(/bin/cat /home/angel/.config/bin/target | awk '{print $1}')
-machine_name=$(/bin/cat /home/angel/.config/bin/target | awk '{print $2}')
- 
+#
+ip_address=$(awk '{print $1}' /home/angel/.config/bin/target)
+machine_name=$(awk '{print $2}' /home/angel/.config/bin/target)
+
+
 if [ $ip_address ] && [ $machine_name ]; then
-    echo "%{F#e51d0b}󰯐 %{F#ffffff}$ip_address%{u-} - $machine_name"
+     
+ ping=$(ping -c 1 $ip_address)
+ ping_output=$?
+  if [ $ping_output -eq 0  ]; then 
+    echo "%{F#e51d0b}󰯐  %{F#ffffff}$ip_address%{u-} - $machine_name"
+  else
+    echo "%{F#e51d0b}󱐝 %{u-}%{F#ffffff} No target"
+  fi
+
 else
     echo "%{F#e51d0b}󱐝 %{u-}%{F#ffffff} No target"
 fi
+
+
+
+
+
+
