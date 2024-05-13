@@ -1,11 +1,23 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+#------------------------------------------------------------------------------------------
+# ZSH Configuration
+#------------------------------------------------------------------------------------------
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-#ZSH autosuggestion Plugin
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+#Theme
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+#Plugins
+plugins=(git sudo)
+
+#Manual Plugins
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
   source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
@@ -15,10 +27,8 @@ if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
-#ZSH Sudo plugin
-if [ -f /usr/share/zsh-sudo/sudo.plugin.zsh ]; then
-  source /usr/share/zsh-sudo/sudo.plugin.zsh
-fi 
+#Source Oh-My-ZSH
+source $ZSH/oh-my-zsh.sh
 
 #History
 HISTFILE=~/.zsh_history
@@ -48,17 +58,19 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+#------------------------------------------------------------------------------------------
+# User configuration
+#------------------------------------------------------------------------------------------
 
 #Custom aliases
-# bat
+#------------------------------------------------------------------------------------------
+
+#BAT
 alias cat='batcat'
 alias catn='batcat --style=plain'
 alias catnp='batcat --style=plain --paging=never'
  
-# ls
+#LS
 alias ll='lsd -lh --group-dirs=first'
 alias la='lsd -a --group-dirs=first'
 alias l='lsd --group-dirs=first'
@@ -66,8 +78,15 @@ alias lla='lsd -lha --group-dirs=first'
 alias ls='lsd --group-dirs=first'
 
 #Target
-alias settarget='/home/angel/.config/bspwm/scripts/settarget.sh'
-alias cleartarget='/home/angel/.config/bspwm/scripts/cleartarget.sh'
+function cleartarget(){
+    echo '' > /home/angel/.config/bin/target
+}
+
+function settarget(){
+      ip_address=$1
+    machine_name=$2
+    echo "$ip_address  $machine_name" > /home/angel/.config/bin/target
+}
 
 function extractPorts(){
     ports="$(cat $1 | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')"
@@ -79,10 +98,11 @@ function extractPorts(){
     echo -e "[*] Ports copied to clipboard\n"  >> extractPorts.tmp
     cat extractPorts.tmp; rm extractPorts.tmp
 }
+function mkt(){
+  mkdir {nmap,content,scripts}
+  ll
+}
+#------------------------------------------------------------------------------------------
 
-
-
-#PATH
-export PATH=/opt/kitty/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/sbin:/opt/nvim-linux64/bin
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#Path
+export PATH=/opt/kitty/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/sbin:/opt/nvim/
