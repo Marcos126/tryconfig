@@ -17,10 +17,9 @@ M.lsp_defaults = function()
             "gopls",
             "pyright",
             "dockerls",
-            "grammarly",
-            "vale_ls",
-            "ltex",
-            "docker_compose_language_service"
+            "docker_compose_language_service",
+            "bashls",
+            "lemminx"
 
         },
 
