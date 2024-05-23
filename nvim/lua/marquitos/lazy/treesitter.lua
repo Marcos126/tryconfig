@@ -14,7 +14,8 @@ return {
                 "jsdoc",
                 "bash",
                 "python",
-                "php"
+                "php",
+                "markdown"
             },
 
             -- Install parsers synchronously (only applied to `ensure_installed`)
