@@ -84,7 +84,7 @@ bspwm-focused-underline = #cc333333
 inherit = bar/top
 
 enable-ipc = true
-monitor = ${env:MONITOR:HDMI1}
+monitor = ${env:MONITOR:HDMI-1}
 bottom = true
 
 underline-size = ${bar/top.overline-size}

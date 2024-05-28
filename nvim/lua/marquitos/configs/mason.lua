@@ -19,7 +19,8 @@ M.lsp_defaults = function()
             "dockerls",
             "docker_compose_language_service",
             "bashls",
-            "lemminx"
+            "lemminx",
+            "phpactor"
         },
 
         handlers = {

@@ -1,6 +1,9 @@
 #
 # wm independent hotkeys
 #
+#Code
+super + shift + c 
+	/usr/bin/code
 
 #Obsdidian 
 super + shift + o
@@ -15,7 +18,7 @@ super + Return
 
 # program launcher
 super + d
-	/usr/bin/rofi -show run
+	/usr/bin/rofi -show run -disable-history
 
 # make sxhkd reload its configuration files:
 super + Escape
