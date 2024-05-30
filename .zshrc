@@ -77,6 +77,9 @@ alias l='lsd --group-dirs=first'
 alias lla='lsd -lha --group-dirs=first'
 alias ls='lsd --group-dirs=first'
 
+#LunarVim
+alias vim='lvim'
+
 #Target
 function cleartarget(){
     echo '' > /home/angel/.config/bin/target
@@ -105,4 +108,23 @@ function mkt(){
 #------------------------------------------------------------------------------------------
 
 #Path
-export PATH=/opt/kitty/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/sbin:/opt/nvim/
+export PATH=/home/angel/miniconda3/bin:opt/kitty/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/sbin:/opt/nvim/:/opt/ffuf/:/home/angel/.local/bin:/home/angel/.cargo/bin
+
+# adding fzf 
+source <(fzf --zsh)
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/angel/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/angel/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/angel/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/angel/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
