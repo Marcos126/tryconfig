@@ -3,6 +3,7 @@ import subprocess
 import os 
 import signal
 import sys
+import time
 from pathlib import Path
 from pwn import log
 
@@ -10,7 +11,6 @@ from pwn import log
 #------------------------------------------CRTL + C-----------------------------------------------
 
 #Esta funcion es para capturar el crtl + c.
-
 def def_handler(sig,frame):
     #Imprimimos "saliendo" en la pantalla
     print("\n\n [!] Saliendo.... \n")
@@ -64,14 +64,19 @@ def brave_install():
     p3.status("Agregando los respositorios APT")
     with open("/etc/apt/sources.list.d/brave-browser-release.list", "w") as file:
         file.write(repo_entry)
-
-    #Actualizar los repositorios de apt para ver el paquete de brave.
+#Actualizar los repositorios de apt para ver el paquete de brave.
     p3.status("Actualizando los repositorios APT")
     command_run(["sudo", "apt-get", "update"])
 
     #Instalar brave.
     p3.status("Instalando Brave-browser con APT")
-    command_run(["sudo", "apt-get", "install","brave-browser","-y"])
+    response = subprocess.run(["sudo", "apt-get", "install","brave-browser","-y"],stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    counter = 1 
+    while response.returncode !=0: 
+        counter += 1
+        p3.status(f"Estan habiendo problemas para instalar brave. ReturnCode: {response.returncode} Intentos: {counter}]")
+        time.sleep(5)
+        response = subprocess.run(["sudo", "apt-get", "install","brave-browser","-y"],stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     p3.success("Brave instalado correctamente")
 
 
@@ -287,6 +292,7 @@ def zsh_install():
 def update_path():
 
     #Updateando el PATH
+    time.sleep(10)
     p0.status("Updating path")
     with open(f"{home_path}/.zshrc",'a') as file:
         data = f"\nexport PATH=$PATH:/opt/nvim-linux64/bin:/opt/kitty/bin"
@@ -335,3 +341,4 @@ if __name__ == '__main__':
         thread.start()
         threads.append(thread)
         
+    time.sleep(5)
