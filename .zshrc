@@ -87,6 +87,7 @@ function cleartarget(){
 
 function settarget(){
       ip_address=$1
+
     machine_name=$2
     echo "$ip_address  $machine_name" > $HOME/.config/bin/target
 }
@@ -108,10 +109,9 @@ function mkt(){
 #------------------------------------------------------------------------------------------
 
 #Path
-export PATH=$HOME/miniconda3/bin:opt/kitty/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/sbin:/opt/nvim/:/opt/ffuf/:$HOME/.local/bin:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/miniconda3/bin:opt/kitty/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/sbin:/opt/nvim-linux64/bin:$HOME/.local/bin:$HOME/.cargo/bin
 
 # adding fzf 
-source <(fzf --zsh)
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -119,8 +119,8 @@ __conda_setup="$('$HOME/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "#HOME/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "#HOME/miniconda3/etc/profile.d/conda.sh"
     else
         export PATH="$HOME/miniconda3/bin:$PATH"
     fi
