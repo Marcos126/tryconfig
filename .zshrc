@@ -10,6 +10,7 @@ fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export MONITOR=$(xrandr | grep -w "connected" | awk '{print $1}' )
 
 #Theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
