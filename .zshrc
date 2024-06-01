@@ -79,7 +79,6 @@ alias lla='lsd -lha --group-dirs=first'
 alias ls='lsd --group-dirs=first'
 
 #LunarVim
-alias vim='lvim'
 
 #Target
 function cleartarget(){
