@@ -109,7 +109,7 @@ function mkt(){
 #------------------------------------------------------------------------------------------
 
 #Path
-export PATH=$PATH:$HOME/miniconda3/bin:opt/kitty/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/sbin:/opt/nvim-linux64/bin:$HOME/.local/bin:$HOME/.cargo/bin:/opt/node-v20.14.0-linux-x64/bin
+export PATH=$PATH:$HOME/miniconda3/bin:opt/kitty/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/sbin:/opt/nvim-linux64/bin:$HOME/.local/bin:$HOME/.cargo/bin:/opt/node-v20.14.0-linux-x64/bin:/opt/go/bin
 
 # adding fzf 
 
