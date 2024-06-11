@@ -9,4 +9,4 @@ vim.opt.expandtab = true
 vim.opt.relativenumber = true
 
 vim.opt.smartindent = true
-vim.opt.clipboard = "unnamedtrue"
+vim.opt.clipboard = "unnamedplus"
