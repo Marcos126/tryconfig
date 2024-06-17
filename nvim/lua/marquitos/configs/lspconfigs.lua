@@ -6,7 +6,6 @@ local function map(bufnr, mode, lhs, rhs, desc)
 end
 
 M.on_attach = function(client, bufnr)
-    -- Mapeos de teclado para funciones LSP
     map(bufnr, 'n', 'gd', vim.lsp.buf.definition, "Go to definition")
     map(bufnr, 'n', 'K', vim.lsp.buf.hover, "Hover symbols")
     map(bufnr, 'n', 'gi', vim.lsp.buf.implementation, "Go to implementation")
@@ -48,7 +47,6 @@ lspconfig.tsserver.setup({
     end,
     settings = {}
 })
-
 
 return M
 

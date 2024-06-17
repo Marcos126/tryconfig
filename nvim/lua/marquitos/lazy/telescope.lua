@@ -8,7 +8,7 @@ return {
     },
 
     config = function()
-            require('marquitos.configs.telescope').sets()
+            require('marquitos.configs.telescope')
     end
 }
 

@@ -1,12 +1,16 @@
-local M ={}
-M.sets = function()
-        require('telescope')
+local builtin = require('telescope.builtin')
 
-        local builtin = require('telescope.builtin')
-        vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
-        vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-        vim.keymap.set('n', '<leader>ps', builtin.live_grep, {})
-        vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
-    end
+return {
+    require('telescope');
 
-return M
+    vim.keymap.set('n', '<leader>pf', builtin.find_files, {});
+    vim.keymap.set('n', '<C-p>', builtin.git_files, {});
+    vim.keymap.set('n', '<leader>ps', builtin.live_grep, {});
+    vim.keymap.set('n', '<leader>vh', builtin.help_tags, {});
+
+    require('telescope').setup{
+        defaults = {
+            file_ignore_patterns  = {"target/*","target","test/*","test"}
+        },
+    }
+}

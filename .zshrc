@@ -10,7 +10,6 @@ fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export MONITOR=$(xrandr | grep -w "connected" | awk '{print $1}' )
 
 #Theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -109,7 +108,10 @@ function mkt(){
 #------------------------------------------------------------------------------------------
 
 #Path
-export PATH=$PATH:$HOME/miniconda3/bin:opt/kitty/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/sbin:/opt/nvim-linux64/bin:$HOME/.local/bin:$HOME/.cargo/bin:/opt/node-v20.14.0-linux-x64/bin:/opt/go/bin
+export PATH=$PATH:$HOME/miniconda3/bin:opt/kitty/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/sbin:/opt/nvim-linux64/bin:$HOME/.local/bin:$HOME/.cargo/bin:/opt/node-v20.14.0-linux-x64/bin:/opt/go/bin:/opt/apache-maven-3.9.7/bin
+
+export HSA_OVERRIDE_GFX_VERSION=10.3.0
+
 
 # adding fzf 
 
@@ -128,3 +130,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
