@@ -1,4 +1,5 @@
 local M = {}
+
 M.options = function()
     local options = {
         PATH = "prepend",
@@ -32,7 +33,7 @@ M.lsp_defaults = function()
         settings = {
             Lua = {
                 diagnostics = {
-                    globals = { "vim",'diagnostics', "capabilities" }
+                    globals = { 'vim','diagnostics', 'capabilities' }
                 }
             }
         }

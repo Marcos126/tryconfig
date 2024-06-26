@@ -10,7 +10,7 @@ return {
 
     require('telescope').setup{
         defaults = {
-            file_ignore_patterns  = {"target/*","target","test/*","test"}
+            file_ignore_patterns  = {"target/*","target","test/*","test","undotree/*","undotree"}
         },
     }
 }
